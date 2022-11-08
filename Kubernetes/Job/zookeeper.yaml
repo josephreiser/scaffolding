@@ -11,7 +11,7 @@ spec:                     # This is the specification where we can even put the 
       containers:
       - name: zookeeper       # this is going to be used for DNS name
         # Change the IP address to where you are running this
-        image: 129.114.25.172:5000/zookeeper  # this is the image in registry accessible
+        image: jreiser123/zookeeper  # this is the image in registry accessible
         imagePullPolicy: Always  # This forces the node to pull the image
         command: ["~/kafka2.12-3.2.1/bin/zookeeper-server-start.sh"]
         args: ["~/kafka2.12-3.2.1/config/zookeeper.properties"]  # arguments to run. I am running this for 1000
