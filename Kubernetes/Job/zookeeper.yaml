@@ -13,8 +13,8 @@ spec:                     # This is the specification where we can even put the 
         # Change the IP address to where you are running this
         image: 129.114.25.172:5000/zookeeper  # this is the image in registry accessible
         imagePullPolicy: Always  # This forces the node to pull the image
-        command: ["bin/zookeeper-server-start.sh"]
-        args: ["config/zookeeper.properties"]  # arguments to run. I am running this for 1000
+        command: ["~/kafka2.12-3.2.1/bin/zookeeper-server-start.sh"]
+        args: ["~/kafka2.12-3.2.1/config/zookeeper.properties"]  # arguments to run. I am running this for 1000
                                                                                                        # iterations so that we have time to do an exec
                                                                                                        # and open a shell to the running pod
       restartPolicy: Never  # we ask Kubernetes not to restart
