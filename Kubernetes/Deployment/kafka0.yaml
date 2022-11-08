@@ -15,7 +15,7 @@ spec:                     # This is the specification where we can even put the 
         image: jreiser123/zookeeper  # this is the image in registry accessible
         imagePullPolicy: Always  # This forces the node to pull the image
         command: ["kafka_2.12-3.3.1/bin/kafka-server-start.sh"]
-        args: ["kafka_2.12-3.3.1/config/server.properties", "--override broker.id=0", "--override listeners=PLAINTEXT://:9093", "--override zookeeper.connect=zookeeper-deployment"]
+        args: ["kafka_2.12-3.3.1/config/server.properties", "--override broker.id=0", "--override listeners=PLAINTEXT://:9093", "--override advertised_listeners=PLAINTEXT://:9093", "--override zookeeper.connect=zookeeper-deployment:2181"]
         
       restartPolicy: Never  # we ask Kubernetes not to restart
 
