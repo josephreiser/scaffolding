@@ -1,3 +1,5 @@
 FROM ubuntu:latest
 RUN wget https://dlcdn.apache.org/kafka/3.3.1/kafka_2.13-3.3.1.tgz
 RUN tar -xzf kafka_2.13-3.3.1.tgz
+RUN sudo ufw limit proto tcp to any port 2181 comment “ZooKeeper”
+RUN sudo ufw limit proto tcp to any port 9092 comment “Kafka”
