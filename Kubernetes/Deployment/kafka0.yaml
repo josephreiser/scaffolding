@@ -5,11 +5,11 @@ metadata:
   name: kafka0-deployment  # A name must be given to the Job type in the metadata section
 spec:                     # This is the specification where we can even put the number of replicas
   replicas: 1
-  selector: 
+  selector:
     matchLabels:
       app: kafka0-deployment
   minReadySeconds: 120
-  
+
   template:               # Specified info needed to run the pod and what runs in the pod
     metadata:
       labels:
@@ -21,8 +21,7 @@ spec:                     # This is the specification where we can even put the 
         image: jreiser123/zookeeper  # this is the image in registry accessible
         imagePullPolicy: Always  # This forces the node to pull the image
         command: ["kafka_2.12-3.3.1/bin/kafka-server-start.sh"]
-        args: ["kafka_2.12-3.3.1/config/server.properties", "--override broker.id=0", "--override listeners=PLAINTEXT://:9093", "--override advertised_listeners=PLAINTEXT://:9093", "--override zookeeper.connect=zookeeper-deployment:2181"]
+        args: ["kafka_2.12-3.3.1/config/server.properties", "--override", "broker.id=0", "--override", "listeners=PL>
         ports:
-        - containerPort: 9093
+        - containerPort: 9092
           name: server
-
