@@ -19,6 +19,12 @@ spec:                     # This is the specification where we can even put the 
         # Change the IP address to where you are running this
           image: couchdb  # this is the image in registry accessible
           imagePullPolicy: Always  # This forces the node to pull the image
+          command: ["/bin/bash"]
+          env:
+          - name: COUCHDB_USER
+            value: admin
+          - name: COUCHDB_PASSWORD
+            value: group11
 
           ports:
           - containerPort: 5984
