@@ -14,13 +14,14 @@
 import os   # need this for popen
 import time # for sleep
 from kafka import KafkaConsumer  # consumer of events
+import couchdb
 
 # We can make this more sophisticated/elegant but for now it is just
 # hardcoded to the setup I have on my local VMs
 
 # acquire the consumer
 # (you will need to change this to your bootstrap server's IP addr)
-consumer = KafkaConsumer (bootstrap_servers="129.114.25.235:9092")
+consumer = KafkaConsumer (bootstrap_servers="129.114.25.216:9092")
 couch = couchdb.Server("http://admin:group11@129.114.26.26:5984/")
 
 db = couch["utilizations"]
