@@ -21,15 +21,15 @@ import couchdb
 
 # acquire the consumer
 # (you will need to change this to your bootstrap server's IP addr)
-consumer = KafkaConsumer (bootstrap_servers="129.114.25.216:9092")
-couch = couchdb.Server("http://admin:group11@129.114.26.26:5984/")
+#consumer = KafkaConsumer (bootstrap_servers="129.114.25.216:9092")
+#couch = couchdb.Server("http://admin:group11@129.114.26.26:5984/")
 
-db = couch["utilizations"]
+#db = couch["utilizations"]
 # subscribe to topic
-consumer.subscribe (topics=["utilizations1"])
+#consumer.subscribe (topics=["utilizations1"])
 
 # we keep reading and printing
-for msg in consumer:
+#for msg in consumer:
     # what we get is a record. From this record, we are interested in printing
     # the contents of the value field. We are sure that we get only the
     # utilizations topic because that is the only topic we subscribed to.
@@ -42,11 +42,11 @@ for msg in consumer:
     # Note that I am not showing code to obtain the incoming data as JSON
     # nor am I showing any code to connect to a backend database sink to
     # dump the incoming data. You will have to do that for the assignment.
-    msg = (str(msg.value, 'ascii'))
-    msg = json.loads(msg)
-    db.save(msg[0])
+#    msg = (str(msg.value, 'ascii'))
+#    msg = json.loads(msg)
+#    db.save(msg[0])
     
 
 # we are done. As such, we are not going to get here as the above loop
 # is a forever loop.
-consumer.close ()
+#consumer.close ()
