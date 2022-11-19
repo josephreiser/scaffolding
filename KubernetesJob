@@ -1,0 +1,12 @@
+FROM ubuntu:latest
+RUN git clone git@github.com:josephreiser/volconnect.git
+RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+RUN echo '# Set PATH, MANPATH, etc., for Homebrew.' >> ~/.zprofile
+RUN echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+RUN eval "$(/opt/homebrew/bin/brew shellenv)
+RUN brew install node
+RUN npm install -g npm
+RUN brew tap mongodb/brew
+RUN brew install mongodb-community
+RUN brew services start mongodb-community
+
